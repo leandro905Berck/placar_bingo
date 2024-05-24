@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placar do Bingo</title>
     <style>
@@ -20,10 +20,13 @@
             align-items: center;
         }
         #current-number {
-            font-size: 15em;
+            font-size: 5em;
             font-weight: bold;
             color: #ff4500;
             animation: pop 0.5s ease;
+        }
+        .letter {
+            color: #0000ff; /* Cor azul para a letra */
         }
         #controls {
             margin-top: 20px;
@@ -78,7 +81,7 @@
 </head>
 <body>
     <div id="container">
-        <div id="current-number">B0</div>
+        <div id="current-number"><span class="letter">B</span>0</div>
         <div id="controls">
             <input type="number" id="number-input" min="1" max="75" placeholder="Número">
             <button id="add-number">Adicionar</button>
@@ -131,7 +134,7 @@
                 return;
             }
             const columnLetter = getColumn(newNumber);
-            currentNumberElement.textContent = `${columnLetter}${newNumber}`;
+            currentNumberElement.innerHTML = `<span class="letter">${columnLetter}</span>${newNumber}`;
             currentNumberElement.style.animation = 'none';
             currentNumberElement.offsetHeight; // trigger reflow
             currentNumberElement.style.animation = 'pop 0.5s ease';
