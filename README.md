@@ -1,0 +1,1 @@
+site para placar bingo
