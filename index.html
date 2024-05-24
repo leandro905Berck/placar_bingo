@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar do Bingo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #current-number {
+            font-size: 15em;
+            font-weight: bold;
+            color: #ff4500;
+            animation: pop 0.5s ease;
+        }
+        #controls {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #number-input {
+            padding: 10px;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            width: 100px;
+            text-align: center;
+        }
+        #add-number {
+            padding: 10px 20px;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        #previous-numbers {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .column-title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .number-item {
+            font-size: 1.5em;
+            color: #333;
+        }
+        @keyframes pop {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="current-number">B0</div>
+        <div id="controls">
+            <input type="number" id="number-input" min="1" max="75" placeholder="Número">
+            <button id="add-number">Adicionar</button>
+        </div>
+        <div id="previous-numbers">
+            <div id="column-B" class="column">
+                <div class="column-title">B</div>
+            </div>
+            <div id="column-I" class="column">
+                <div class="column-title">I</div>
+            </div>
+            <div id="column-N" class="column">
+                <div class="column-title">N</div>
+            </div>
+            <div id="column-G" class="column">
+                <div class="column-title">G</div>
+            </div>
+            <div id="column-O" class="column">
+                <div class="column-title">O</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currentNumberElement = document.getElementById('current-number');
+        const numberInput = document.getElementById('number-input');
+        const addNumberButton = document.getElementById('add-number');
+
+        const columns = {
+            B: document.getElementById('column-B'),
+            I: document.getElementById('column-I'),
+            N: document.getElementById('column-N'),
+            G: document.getElementById('column-G'),
+            O: document.getElementById('column-O'),
+        };
+
+        let previousNumbers = [];
+
+        function getColumn(newNumber) {
+            if (newNumber >= 1 && newNumber <= 15) return 'B';
+            if (newNumber >= 16 && newNumber <= 30) return 'I';
+            if (newNumber >= 31 && newNumber <= 45) return 'N';
+            if (newNumber >= 46 && newNumber <= 60) return 'G';
+            if (newNumber >= 61 && newNumber <= 75) return 'O';
+        }
+
+        function updateNumber(newNumber) {
+            if (newNumber < 1 || newNumber > 75 || previousNumbers.includes(newNumber)) {
+                alert('Número inválido ou já sorteado!');
+                return;
+            }
+            const columnLetter = getColumn(newNumber);
+            currentNumberElement.textContent = `${columnLetter}${newNumber}`;
+            currentNumberElement.style.animation = 'none';
+            currentNumberElement.offsetHeight; // trigger reflow
+            currentNumberElement.style.animation = 'pop 0.5s ease';
+
+            previousNumbers.push(newNumber);
+            const numberItem = document.createElement('div');
+            numberItem.textContent = newNumber;
+            numberItem.className = 'number-item';
+            columns[columnLetter].appendChild(numberItem);
+
+            numberInput.value = '';
+            numberInput.focus();
+        }
+
+        addNumberButton.addEventListener('click', () => {
+            const newNumber = parseInt(numberInput.value, 10);
+            if (!isNaN(newNumber)) {
+                updateNumber(newNumber);
+            } else {
+                alert('Por favor, insira um número válido.');
+            }
+        });
+
+        numberInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                addNumberButton.click();
+            }
+        });
+    </script>
+</body>
+</html>
