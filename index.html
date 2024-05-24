@@ -45,6 +45,7 @@
         }
         #previous-numbers {
             display: flex;
+            font-weight: bold;
             justify-content: space-around;
             width: 100%;
             margin-top: 20px;
@@ -79,7 +80,7 @@
     <div id="container">
         <div id="current-number">B0</div>
         <div id="controls">
-            <input type="number" id="number-input" min="1" max="75" placeholder="Número">
+            <input type="number" id="number-input" min="1" max="75" placeholder="NÃºmero">
             <button id="add-number">Adicionar</button>
         </div>
         <div id="previous-numbers">
@@ -126,7 +127,7 @@
 
         function updateNumber(newNumber) {
             if (newNumber < 1 || newNumber > 75 || previousNumbers.includes(newNumber)) {
-                alert('Número inválido ou já sorteado!');
+                alert('NÃºmero invÃ¡lido ou jÃ¡ sorteado!');
                 return;
             }
             const columnLetter = getColumn(newNumber);
@@ -150,7 +151,7 @@
             if (!isNaN(newNumber)) {
                 updateNumber(newNumber);
             } else {
-                alert('Por favor, insira um número válido.');
+                alert('Por favor, insira um nÃºmero vÃ¡lido.');
             }
         });
 
