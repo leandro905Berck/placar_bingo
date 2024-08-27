@@ -64,6 +64,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
@@ -131,6 +132,9 @@
                 opacity: 1;
             }
         }
+        #qrcode {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -157,6 +161,11 @@
                 <div class="column-title">O</div>
             </div>
         </div>
+    </div>
+
+    <!-- QR Code Image -->
+    <div id="qrcode">
+        <img src="qrcode.png" alt="QR Code" width="150">
     </div>
 
     <script>
