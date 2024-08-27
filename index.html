@@ -64,6 +64,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
@@ -131,6 +132,9 @@
                 opacity: 1;
             }
         }
+        #qrcode {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -157,6 +161,11 @@
                 <div class="column-title">O</div>
             </div>
         </div>
+    </div>
+
+    <!-- QR Code Image -->
+    <div id="qrcode">
+        <img src="path_to_your_qrcode.png" alt="QR Code" width="150">
     </div>
 
     <script>
@@ -188,7 +197,7 @@
                 return;
             }
             const columnLetter = getColumn(newNumber);
-            currentNumberElement.innerHTML = <span class="letter">${columnLetter}</span>${newNumber};
+            currentNumberElement.innerHTML = `<span class="letter">${columnLetter}</span>${newNumber}`;
             currentNumberElement.style.animation = 'none';
             currentNumberElement.offsetHeight; // trigger reflow
             currentNumberElement.style.animation = 'pop 0.5s ease';
@@ -220,3 +229,4 @@
     </script>
 </body>
 </html>
+
