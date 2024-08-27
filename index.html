@@ -62,17 +62,17 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
-            align-items: center;
             flex-direction: column;
+            align-items: center;
+            height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
         }
         #container {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
-
+            margin-top: 20px;
         }
         #current-number {
             font-size: 15em;
@@ -112,7 +112,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-left: 20px;
         }
         .column-title {
             font-size: 2em;
@@ -122,6 +121,9 @@
         .number-item {
             font-size: 1.5em;
             color: #333;
+        }
+        .sorteado {
+            color: red;
         }
         @keyframes pop {
             0% {
@@ -134,14 +136,33 @@
             }
         }
 
-        /* Rodapé */
+        #bingo-card {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 800px;
+            flex-wrap: wrap;
+        }
+        .bingo-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 10px;
+        }
+        .bingo-column .column-title {
+            font-size: 1.5em;
+        }
+        .bingo-column .number-item {
+            margin: 5px 0;
+        }
         footer {
             width: 100%;
             background-color: #333;
             color: white;
             text-align: center;
             padding: 10px 0;
-            position: fixed;
+            position: absolute;
             bottom: 0;
             left: 0;
         }
@@ -175,16 +196,107 @@
                 <div class="column-title">O</div>
             </div>
         </div>
+        <!-- Cartela de Bingo -->
+        <div id="bingo-card">
+            <div class="bingo-column">
+                <div class="column-title">B</div>
+                <div class="number-item">1</div>
+                <div class="number-item">2</div>
+                <div class="number-item">3</div>
+                <div class="number-item">4</div>
+                <div class="number-item">5</div>
+                <div class="number-item">6</div>
+                <div class="number-item">7</div>
+                <div class="number-item">8</div>
+                <div class="number-item">9</div>
+                <div class="number-item">10</div>
+                <div class="number-item">11</div>
+                <div class="number-item">12</div>
+                <div class="number-item">13</div>
+                <div class="number-item">14</div>
+                <div class="number-item">15</div>
+            </div>
+            <div class="bingo-column">
+                <div class="column-title">I</div>
+                <div class="number-item">16</div>
+                <div class="number-item">17</div>
+                <div class="number-item">18</div>
+                <div class="number-item">19</div>
+                <div class="number-item">20</div>
+                <div class="number-item">21</div>
+                <div class="number-item">22</div>
+                <div class="number-item">23</div>
+                <div class="number-item">24</div>
+                <div class="number-item">25</div>
+                <div class="number-item">26</div>
+                <div class="number-item">27</div>
+                <div class="number-item">28</div>
+                <div class="number-item">29</div>
+                <div class="number-item">30</div>
+            </div>
+            <div class="bingo-column">
+                <div class="column-title">N</div>
+                <div class="number-item">31</div>
+                <div class="number-item">32</div>
+                <div class="number-item">33</div>
+                <div class="number-item">34</div>
+                <div class="number-item">35</div>
+                <div class="number-item">36</div>
+                <div class="number-item">37</div>
+                <div class="number-item">38</div>
+                <div class="number-item">39</div>
+                <div class="number-item">40</div>
+                <div class="number-item">41</div>
+                <div class="number-item">42</div>
+                <div class="number-item">43</div>
+                <div class="number-item">44</div>
+                <div class="number-item">45</div>
+            </div>
+            <div class="bingo-column">
+                <div class="column-title">G</div>
+                <div class="number-item">46</div>
+                <div class="number-item">47</div>
+                <div class="number-item">48</div>
+                <div class="number-item">49</div>
+                <div class="number-item">50</div>
+                <div class="number-item">51</div>
+                <div class="number-item">52</div>
+                <div class="number-item">53</div>
+                <div class="number-item">54</div>
+                <div class="number-item">55</div>
+                <div class="number-item">56</div>
+                <div class="number-item">57</div>
+                <div class="number-item">58</div>
+                <div class="number-item">59</div>
+                <div class="number-item">60</div>
+            </div>
+            <div class="bingo-column">
+                <div class="column-title">O</div>
+                <div class="number-item">61</div>
+                <div class="number-item">62</div>
+                <div class="number-item">63</div>
+                <div class="number-item">64</div>
+                <div class="number-item">65</div>
+                <div class="number-item">66</div>
+                <div class="number-item">67</div>
+                <div class="number-item">68</div>
+                <div class="number-item">69</div>
+                <div class="number-item">70</div>
+                <div class="number-item">71</div>
+                <div class="number-item">72</div>
+                <div class="number-item">73</div>
+                <div class="number-item">74</div>
+                <div class="number-item">75</div>
+            </div>
+        </div>
     </div>
 
-
-    <!-- Rodapé -->
     <footer>
         <p>&copy; 2024 Leandro Matheus Berck - Todos os direitos reservados</p>
         <p>Email: <a href="mailto:leandromberck@gmail.com">leandromberck@gmail.com</a></p>
         <p>Telefone: <a href="https://wa.me/551999616323" target="_blank">(19) 9 961-6323</a></p>
     </footer>
-    
+
     <script>
         const currentNumberElement = document.getElementById('current-number');
         const numberInput = document.getElementById('number-input');
@@ -196,6 +308,15 @@
             N: document.getElementById('column-N'),
             G: document.getElementById('column-G'),
             O: document.getElementById('column-O'),
+        };
+
+        // Referências às colunas da cartela de bingo
+        const bingoCardColumns = {
+            B: document.querySelectorAll('.bingo-column:nth-child(1) .number-item'),
+            I: document.querySelectorAll('.bingo-column:nth-child(2) .number-item'),
+            N: document.querySelectorAll('.bingo-column:nth-child(3) .number-item'),
+            G: document.querySelectorAll('.bingo-column:nth-child(4) .number-item'),
+            O: document.querySelectorAll('.bingo-column:nth-child(5) .number-item'),
         };
 
         let previousNumbers = [];
@@ -224,6 +345,13 @@
             numberItem.textContent = newNumber;
             numberItem.className = 'number-item';
             columns[columnLetter].appendChild(numberItem);
+
+            // Atualiza a cartela de bingo
+            bingoCardColumns[columnLetter].forEach(item => {
+                if (parseInt(item.textContent, 10) === newNumber) {
+                    item.classList.add('sorteado');
+                }
+            });
 
             numberInput.value = '';
             numberInput.focus();
