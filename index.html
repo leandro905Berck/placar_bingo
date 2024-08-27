@@ -64,7 +64,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
+            height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
         }
@@ -131,27 +131,6 @@
                 opacity: 1;
             }
         }
-
-        /* Rodapé */
-        footer {
-            width: 100%;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            bottom: 0;
-            left: 0;
-            margin-top: 200px;
-        }
-        footer a {
-            color: #00ff00;
-            text-decoration: none;
-        }
-        
-        #qrcode {
-            margin-top: 200px;
-        }
     </style>
 </head>
 <body>
@@ -179,22 +158,6 @@
             </div>
         </div>
     </div>
-        </div>
-        <!-- QR Code Image -->
-                    <div id="qrcode">
-                        <center>
-                            <h1><strong>Gostou do site? Me escaneie para ter acesso!!</strong></h1>
-                            <img src="qrcode.png" alt="QR Code" width="150">
-                        </center>
-                    </div>
-    </div>
-
-    <!-- Rodapé -->
-    <footer>
-        <p>&copy; 2024 Leandro Matheus Berck - Todos os direitos reservados</p>
-        <p>Email: <a href="mailto:leandromberck@gmail.com">leandromberck@gmail.com</a></p>
-        <p>Telefone: <a href="https://wa.me/551999616323" target="_blank">(19) 9 961-6323</a></p>
-    </footer>
 
     <script>
         const currentNumberElement = document.getElementById('current-number');
@@ -257,4 +220,3 @@
     </script>
 </body>
 </html>
-
