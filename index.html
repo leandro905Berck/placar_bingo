@@ -55,8 +55,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1921741208227045"
-     crossorigin="anonymous"></script>
     <title>Placar do Bingo</title>
     <style>
         body {
@@ -133,45 +131,6 @@
             }
         }
 
-        /* Anúncio */
-        #ad {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            width: 300px;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            border-radius: 10px;
-            display: none;
-            animation: fadeinout 20s infinite;
-        }
-        #ad-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        #ad img {
-            width: 100px;
-            height: 100px;
-        }
-        #ad button {
-            background-color: red;
-            color: white;
-            border: none;
-            padding: 5px;
-            cursor: pointer;
-            font-size: 1.2em;
-        }
-        @keyframes fadeinout {
-            0%, 90% {
-                opacity: 0;
-            }
-            10%, 80% {
-                opacity: 1;
-            }
-        }
-
         /* Rodapé */
         footer {
             width: 100%;
@@ -182,7 +141,7 @@
             position: relative;
             bottom: 0;
             left: 0;
-            margion-top: 200px:
+            margin-top: 200px;
         }
         footer a {
             color: #00ff00;
@@ -218,21 +177,14 @@
                 <div class="column-title">O</div>
             </div>
         </div>
-    </div>
 
-    <!-- Anúncio que aparece e desaparece -->
-    <div id="ad">
-        <div id="ad-content">
-            <span>Anúncio!</span>
-            <button id="close-ad">X</button>
+        <!-- QR Code -->
+        <div id="qrcode">
+            <center>
+                <h1><strong>Gostou do site? Me escaneie para ter acesso!!</strong></h1>
+                <img src="qrcode.png" alt="QR Code" width="150">
+            </center>
         </div>
-        <!-- QR Code Image -->
-                    <div id="qrcode">
-                        <center>
-                            <h1><strong>Gostou do site? Me escaneie para ter acesso!!</strong></h1>
-                            <img src="qrcode.png" alt="QR Code" width="150">
-                        </center>
-                    </div>
     </div>
 
     <!-- Rodapé -->
@@ -299,23 +251,6 @@
             if (event.key === 'Enter') {
                 addNumberButton.click();
             }
-        });
-
-        // Controle do Anúncio
-        const adElement = document.getElementById('ad');
-        const closeAdButton = document.getElementById('close-ad');
-
-        // Mostrar o anúncio periodicamente
-        setInterval(() => {
-            adElement.style.display = 'block';
-            setTimeout(() => {
-                adElement.style.display = 'none';
-            }, 8000); // Anúncio aparece por 8 segundos
-        }, 30000); // A cada 30 segundos
-
-        // Fechar o anúncio ao clicar no botão "X"
-        closeAdButton.addEventListener('click', () => {
-            adElement.style.display = 'none';
         });
     </script>
 </body>
