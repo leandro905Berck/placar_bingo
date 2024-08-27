@@ -132,6 +132,62 @@
                 opacity: 1;
             }
         }
+
+        /* Anúncio */
+        #ad {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 300px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+            animation: fadeinout 20s infinite;
+        }
+        #ad-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #ad img {
+            width: 100px;
+            height: 100px;
+        }
+        #ad button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+        @keyframes fadeinout {
+            0%, 90% {
+                opacity: 0;
+            }
+            10%, 80% {
+                opacity: 1;
+            }
+        }
+
+        /* Rodapé */
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        footer a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        
         #qrcode {
             margin-top: 20px;
         }
@@ -170,6 +226,22 @@
             <img src="qrcode.png" alt="QR Code" width="150">
         </center>
     </div>
+
+    <!-- Anúncio que aparece e desaparece -->
+    <div id="ad">
+        <div id="ad-content">
+            <span>Anúncio!</span>
+            <button id="close-ad">X</button>
+        </div>
+        <img src="ad-image.png" alt="Anúncio">
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Leandro Matheus Berck - Todos os direitos reservados</p>
+        <p>Email: <a href="mailto:leandromberck@gmail.com">leandromberck@gmail.com</a></p>
+        <p>Telefone: <a href="https://wa.me/551999616323" target="_blank">(19) 9 961-6323</a></p>
+    </footer>
 
     <script>
         const currentNumberElement = document.getElementById('current-number');
@@ -228,6 +300,23 @@
             if (event.key === 'Enter') {
                 addNumberButton.click();
             }
+        });
+
+        // Controle do Anúncio
+        const adElement = document.getElementById('ad');
+        const closeAdButton = document.getElementById('close-ad');
+
+        // Mostrar o anúncio periodicamente
+        setInterval(() => {
+            adElement.style.display = 'block';
+            setTimeout(() => {
+                adElement.style.display = 'none';
+            }, 8000); // Anúncio aparece por 8 segundos
+        }, 30000); // A cada 30 segundos
+
+        // Fechar o anúncio ao clicar no botão "X"
+        closeAdButton.addEventListener('click', () => {
+            adElement.style.display = 'none';
         });
     </script>
 </body>
