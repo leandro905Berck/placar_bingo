@@ -72,9 +72,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            height: 80%;
-            justify-content: center;
-            overflow: hidden;
+            margin-top: 600px;
         }
         #current-number {
             font-size: 15em;
@@ -105,11 +103,10 @@
         }
         #previous-numbers {
             display: flex;
+            font-weight: bold;
             justify-content: space-around;
             width: 100%;
             margin-top: 20px;
-            overflow-y: auto;
-            max-height: 150px; /* Limita a altura para evitar crescimento indefinido */
         }
         .column {
             display: flex;
@@ -146,14 +143,15 @@
             position: relative;
             bottom: 0;
             left: 0;
+            margin-top: 200px;
         }
         footer a {
             color: #00ff00;
             text-decoration: none;
         }
-
+        
         #qrcode {
-            margin-top: 20px;
+            margin-top: 200px;
         }
     </style>
 </head>
@@ -182,13 +180,14 @@
             </div>
         </div>
     </div>
-
-    <!-- QR Code Image -->
-    <div id="qrcode">
-        <center>
-            <h1><strong>Gostou do site? Me escaneie para ter acesso!!</strong></h1>
-            <img src="qrcode.png" alt="QR Code" width="150">
-        </center>
+        </div>
+        <!-- QR Code Image -->
+                    <div id="qrcode">
+                        <center>
+                            <h1><strong>Gostou do site? Me escaneie para ter acesso!!</strong></h1>
+                            <img src="qrcode.png" alt="QR Code" width="150">
+                        </center>
+                    </div>
     </div>
 
     <!-- Rodapé -->
@@ -227,7 +226,7 @@
                 return;
             }
             const columnLetter = getColumn(newNumber);
-            currentNumberElement.innerHTML = `<span class="letter">${columnLetter}</span>${newNumber}`;
+            currentNumberElement.innerHTML = <span class="letter">${columnLetter}</span>${newNumber};
             currentNumberElement.style.animation = 'none';
             currentNumberElement.offsetHeight; // trigger reflow
             currentNumberElement.style.animation = 'pop 0.5s ease';
