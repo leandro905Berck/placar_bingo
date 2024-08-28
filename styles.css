@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#resultado, #cartela {
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#cartela-numeros {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr); /* Cria 5 colunas, uma para cada letra */
+    gap: 10px; /* Espaçamento entre os números */
+    justify-content: center; /* Centraliza a grid no container */
+}
+
+.numero {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.numero.marked {
+    background-color: black;
+    color: red;
+    font-weight: bold;
+}
+
+#input-numero {
+    padding: 5px;
+    font-size: 16px;
+    margin: 10px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 60px;
+    height: 30px;
+}
+
+#adicionar-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
