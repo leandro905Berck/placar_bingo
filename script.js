@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputNumero = document.getElementById('input-numero');
     const sortearBtn = document.getElementById('sortear-btn');
     const adicionarBtn = document.getElementById('adicionar-btn');
+    const vozCheckbox = document.getElementById('voz-checkbox');
 
     function gerarCartela() {
         cartelaDiv.innerHTML = '';
@@ -23,6 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 div.textContent = `${letra}${numero}`;
                 cartelaDiv.appendChild(div);
             });
+        }
+    }
+
+    function falarNumero(letra, numero) {
+        if (vozCheckbox.checked) {
+            const synth = window.speechSynthesis;
+            const utterance = new SpeechSynthesisUtterance(`Letra ${letra}, número ${numero}`);
+            synth.speak(utterance);
         }
     }
 
@@ -50,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 div.classList.add('marked');
             }
         });
+
+        falarNumero(letra, numero);
     }
 
     function adicionarNumeroManual() {
@@ -82,6 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        falarNumero(letra, numero);
+
         inputNumero.value = '';
     }
 
@@ -93,7 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     sortearBtn.addEventListener('click', sortearNumero);
     adicionarBtn.addEventListener('click', adicionarNumeroManual);
-    inputNumero.addEventListener('keypress', handleKeyPress); // Adiciona o listener para o evento keypress
-
+    inputNumero.addEventListener('keypress', handleKeyPress);
     gerarCartela();
 });
