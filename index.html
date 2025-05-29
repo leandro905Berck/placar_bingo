@@ -104,17 +104,18 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            position: relative;
         }
         #container {
-            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 10px;
-            box-sizing: border-box;
+            z-index: 1;
         }
         #current-number {
             font-size: 15em;
@@ -144,11 +145,8 @@
             cursor: pointer;
         }
         #previous-numbers {
-            display: wrap;
+            display: flex;
             font-weight: bold;
-            overflow-x: auto;
-            padding: 10px;
-            box-sizing: border-box;
             justify-content: space-around;
             width: 100%;
             margin-top: 20px;
@@ -162,7 +160,6 @@
             font-size: 2em;
             font-weight: bold;
             margin-bottom: 10px;
-            min-width: 60px;
         }
         .number-item {
             font-size: 1.5em;
@@ -205,15 +202,15 @@
         }
 
         #footer {
-            flex-shrink: 0;
-            width: 100%;
-            background: #fff;
-            text-align: center;
-            padding: 10px 0;
-            border-top: 1px solid #ccc;
-            z-index: 2;
-}
-        
+    flex-shrink: 0;
+    width: 100%;
+    background: #fff;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    position: relative;
+    z-index: 2;
+        }
         
     </style>
 </head>
@@ -243,11 +240,11 @@
         </div>
     </div>
 
-    <div id="footer">
+    <!--<div id="footer">
         <p>&copy; 2025 Leandro Matheus Berck - Todos os direitos reservados</p>
         <p>Email: <a href="mailto:leandromberck@gmail.com">leandromberck@gmail.com</a></p>
         <p>Telefone: <a href="https://wa.me/551999616323" target="_blank">(19) 9 9761-6323</a></p>
-    </div>
+    </div> -->
 
     <script>
         const currentNumberElement = document.getElementById('current-number');
@@ -310,4 +307,3 @@
     </script>
 </body>
 </html>
-
