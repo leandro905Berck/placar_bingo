@@ -104,18 +104,17 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
-            position: relative;
         }
         #container {
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
-            z-index: 1;
+            padding: 20px 10px;
+            box-sizing: border-box;
         }
         #current-number {
             font-size: 15em;
@@ -145,8 +144,11 @@
             cursor: pointer;
         }
         #previous-numbers {
-            display: flex;
+            display: wrap;
             font-weight: bold;
+            overflow-x: auto;
+            padding: 10px;
+            box-sizing: border-box;
             justify-content: space-around;
             width: 100%;
             margin-top: 20px;
@@ -160,6 +162,7 @@
             font-size: 2em;
             font-weight: bold;
             margin-bottom: 10px;
+            min-width: 60px;
         }
         .number-item {
             font-size: 1.5em;
@@ -202,15 +205,15 @@
         }
 
         #footer {
-    flex-shrink: 0;
-    width: 100%;
-    background: #fff;
-    text-align: center;
-    padding: 10px 0;
-    border-top: 1px solid #ccc;
-    position: relative;
-    z-index: 2;
-        }
+            flex-shrink: 0;
+            width: 100%;
+            background: #fff;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+            z-index: 2;
+}
+        
         
     </style>
 </head>
